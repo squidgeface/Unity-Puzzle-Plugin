@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 95c8c72f45935914fb81d1cf1b17e737
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_ViewDataDictionary: {instanceID: 0}
+  - RockGameObject: {fileID: 1295395893145197306, guid: b8d6ed726f24d6c46926a71d8ec653fe, type: 3}
+  - PuzzleGameObject: {fileID: 811584444980854991, guid: 186e1f9bf07aaf643873791bd4395156, type: 3}
+  - MovementPuzzleObject: {fileID: 8640418525341923852, guid: aac7a5be3fb56d14dbc432a3132fdbf0, type: 3}
+  - ActionPuzzleObject: {fileID: 8640418525341923852, guid: aac7a5be3fb56d14dbc432a3132fdbf0, type: 3}
+  - CollectionPuzzleObject: {fileID: 8641231372813258999, guid: 9265f5859ac04a34985d1784b84840aa, type: 3}
+  - ScriptableValues: {fileID: 11400000, guid: 78648472545fd8744b63a00a220d76b6, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

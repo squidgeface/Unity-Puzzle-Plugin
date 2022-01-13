@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58efa468b1d24e14da6c61406a14e7a6, type: 3}
+  m_Name: New Boid Properties
+  m_EditorClassIdentifier: 
+  Object: {fileID: 6689790496482455078, guid: 36a27116f2bb26342bf84123df838441, type: 3}
+  CS: {fileID: 7200000, guid: e477604aacffc4342ac27acbce65b029, type: 3}
+  NumberOfThreads: 1024
+  MinSpeed: 10
+  MaxSpeed: 20
+  MaxSteerForce: 20
+  ViewDistance: 10
+  SeperationDistance: 5
+  FishTint: {r: 0, g: 0, b: 0, a: 0}
+  TargetRadius: 0
+  NoTargetingRadius: 1
+  ObstacleLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  AvoidDistance: 10
+  SeperationWeight: 1
+  AlignmentWeight: 1
+  CohesionWeight: 1
+  TargetWeight: 1
+  AvoidWeight: 10

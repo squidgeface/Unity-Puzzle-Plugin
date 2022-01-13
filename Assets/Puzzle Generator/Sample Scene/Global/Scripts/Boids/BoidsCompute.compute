@@ -1,0 +1,56 @@
+// Each #kernel tells which function to compile; you can have many kernels
+#pragma kernel CSMain
+
+static const int NumberOfThreads = 1024;
+
+// Individual Boid propeties
+struct Boid 
+{
+    float3 Position;
+    float3 Direction;
+
+    float3 AlignmentForce;
+    float3 CohesionForce;
+    float3 SeperationForce;
+    int Neighbours;
+};
+
+// Read write buffer to send in and out data
+RWStructuredBuffer<Boid> Boids;
+
+// Boid behaviour properties
+uint TotalBoids;
+float ViewDistance;
+float SeperationDistance;
+
+[numthreads(NumberOfThreads, 1, 1)]
+void CSMain (uint3 id : SV_DispatchThreadID)
+{
+    for (uint i = 0; i < TotalBoids; i++)
+    {
+        // Make sure it's not performing calculations on itself
+        if (id.x != i)
+        {
+            // Create struct variable from buffer using given index
+            Boid B = Boids[i];
+
+            // Calcualte the distance of current boid and boid to check
+            float3 Offset = B.Position - Boids[id.x].Position;
+            float SquaredDistance = Offset.x * Offset.x + Offset.y * Offset.y + Offset.z * Offset.z;
+            
+            // Add all boids in viewing distance to force calculations
+            if (SquaredDistance < ViewDistance * ViewDistance)
+            {
+                Boids[id.x].AlignmentForce += B.Direction;
+                Boids[id.x].CohesionForce += B.Position;
+                Boids[id.x].Neighbours++;
+
+                // Only calculate seperation force if they're within the seperation distance
+                if (SquaredDistance < SeperationDistance * SeperationDistance)
+                {
+                    Boids[id.x].SeperationForce -= Offset / SquaredDistance;
+                }
+            }
+        }
+    }
+}
